@@ -14,7 +14,13 @@ const { MongoClient, ObjectId } = require('mongodb');
 const port = process.env.PORT || 5000;
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: [
+        "https://chalo-jai-server.vercel.app",
+        "https://chalo-jai-server-git-main-monirul4.vercel.app",
+        "http://localhost:5173", // keep for local development
+    ],
+}));
 app.use(express.json());
 
 
