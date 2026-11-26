@@ -16,8 +16,8 @@ const port = process.env.PORT || 5000;
 const app = express();
 app.use(cors({
     origin: [
-        "https://chalo-jai-server.vercel.app",
-        "https://chalo-jai-server-git-main-monirul4.vercel.app",
+        "https://chalojai-534f1.web.app",
+        "https://chalojai-534f1.firebaseapp.com",
         "http://localhost:5173", // keep for local development
     ],
 }));
