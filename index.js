@@ -46,7 +46,7 @@ app.get("/", (req, res) => {
 });
 
 // Add tourist spot
-app.post("/add-tourists-spot", async (req, res) => {
+app.post("/add-tourists-spot", verifyToken, async (req, res) => {
     try {
         const result = await spotCollection.insertOne(req.body);
         res.send(result);
@@ -79,7 +79,7 @@ app.get("/all-tourists-spot/:id", async (req, res) => {
 });
 
 // Update tourist spot
-app.put("/update-tourists-spot/:id", async (req, res) => {
+app.put("/update-tourists-spot/:id", verifyToken, async (req, res) => {
     try {
         const filter = { _id: new ObjectId(req.params.id) };
         const u = req.body;
@@ -107,7 +107,7 @@ app.put("/update-tourists-spot/:id", async (req, res) => {
 });
 
 // Delete a spot
-app.delete("/all-tourists-spot/:id", async (req, res) => {
+app.delete("/all-tourists-spot/:id", verifyToken, async (req, res) => {
     try {
         const result = await spotCollection.deleteOne({ _id: new ObjectId(req.params.id) });
         res.send(result);
